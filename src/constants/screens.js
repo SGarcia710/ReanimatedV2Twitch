@@ -1,4 +1,4 @@
-import { Home, Transitions } from '../screens';
+import { Home, Transitions, ScrollEvents } from '../screens';
 
 const SCREENS = [
   {
@@ -10,6 +10,11 @@ const SCREENS = [
     name: 'Transitions',
     component: Transitions,
     title: 'Transitions',
+  },
+  {
+    name: 'ScrollEvents',
+    component: ScrollEvents,
+    title: 'Scroll Events',
   },
 ];
 
