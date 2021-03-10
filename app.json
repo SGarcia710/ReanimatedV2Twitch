@@ -1,0 +1,12 @@
+{
+  "name": "ReanimatedV2Twitch",
+  "displayName": "ReanimatedV2Twitch",
+  "expo": {
+    "name": "ReanimatedV2Twitch",
+    "slug": "ReanimatedV2Twitch",
+    "version": "1.0.0",
+    "assetBundlePatterns": [
+      "**/*"
+    ]
+  }
+}
