@@ -1,63 +1,61 @@
-import React, { useEffect } from 'react';
-import { View, Text, Image } from 'react-native';
-import Animated, {
-  interpolate,
-  useAnimatedStyle,
+import React from 'react';
+import { useEffect } from 'react';
+import { useState } from 'react';
+import { View, Text, TouchableOpacity } from 'react-native';
+import {
+  useDerivedValue,
   useSharedValue,
-  withRepeat,
-  withSequence,
   withSpring,
   withTiming,
 } from 'react-native-reanimated';
+import { Card } from '../components';
+
+const CARDS = [
+  require('../assets/images/Card2.png'),
+  require('../assets/images/Card3.png'),
+  require('../assets/images/Card4.png'),
+];
 
 const Transitions = () => {
-  const scale = useSharedValue(0);
+  const [isRotated, setIsRotated] = useState(false);
+  const isRotatedAnimated = useSharedValue(false);
 
   useEffect(() => {
-    scale.value = withRepeat(
-      withSequence(
-        withTiming(1, {
-          duration: 1000,
-        }),
-        withTiming(0, {
-          duration: 1000,
-        })
-      ),
-      -1
-    );
-    setInterval(() => {
-      console.log(`${123123 + 123123}`);
-    }, 1);
-  }, []);
+    isRotatedAnimated.value = isRotated;
+  }, [isRotated, isRotatedAnimated]);
 
-  const animatedStyles = useAnimatedStyle(() => {
-    return {
-      transform: [
-        {
-          scale: interpolate(scale.value, [0, 1], [0.5, 1]),
-        },
-      ],
-    };
+  const isRotatedTransition = useDerivedValue(() => {
+    return withTiming(isRotatedAnimated.value);
   });
+
   return (
     <View
       style={{
         flex: 1,
-        backgroundColor: '#5758BB',
         justifyContent: 'center',
         alignItems: 'center',
+        backgroundColor: '#40739e',
       }}
     >
-      <Animated.Image
-        source={require('../assets/images/heart.png')}
-        style={[
-          {
-            width: 200,
-            height: 200,
-          },
-          animatedStyles,
-        ]}
-      />
+      {React.Children.toArray(
+        CARDS.map((card, index) => (
+          <Card image={card} index={index} isRotated={isRotatedTransition} />
+        ))
+      )}
+
+      <TouchableOpacity
+        style={{
+          position: 'absolute',
+          bottom: 150,
+          backgroundColor: 'white',
+          paddingHorizontal: 22,
+          paddingVertical: 14,
+          borderRadius: 8,
+        }}
+        onPress={() => setIsRotated(!isRotated)}
+      >
+        <Text>{isRotated ? 'Centrar' : 'Rotar'}</Text>
+      </TouchableOpacity>
     </View>
   );
 };
