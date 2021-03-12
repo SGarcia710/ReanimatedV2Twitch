@@ -5,3 +5,5 @@ export { default as DragAndDrop } from './DragAndDrop';
 export { default as Accordion } from './Accordion';
 export { default as TikTokDisc } from './TikTokDisc';
 export { default as Transitions } from './Transitions';
+export { default as BottomSheet } from './BottomSheet';
+export { default as BottomTabNavigator } from './BottomTabNavigator';

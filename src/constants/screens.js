@@ -6,6 +6,8 @@ import {
   Accordion,
   TikTokDisc,
   Transitions,
+  BottomTabNavigator,
+  BottomSheet,
 } from '../screens';
 
 const SCREENS = [
@@ -43,6 +45,16 @@ const SCREENS = [
     name: 'Transitions',
     component: Transitions,
     title: 'Cards Transition',
+  },
+  {
+    name: 'BottomSheet',
+    component: BottomSheet,
+    title: 'Bottom Sheet',
+  },
+  {
+    name: 'BottomTabNavigator',
+    component: BottomTabNavigator,
+    title: 'Bottom Tab Navigator',
   },
 ];
 
