@@ -7,3 +7,4 @@ export { default as TikTokDisc } from './TikTokDisc';
 export { default as Transitions } from './Transitions';
 export { default as BottomSheet } from './BottomSheet';
 export { default as BottomTabNavigator } from './BottomTabNavigator';
+export { default as ColorInterpolation } from './ColorInterpolation';

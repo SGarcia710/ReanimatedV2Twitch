@@ -8,6 +8,7 @@ import {
   Transitions,
   BottomTabNavigator,
   BottomSheet,
+  ColorInterpolation,
 } from '../screens';
 
 const SCREENS = [
@@ -55,6 +56,11 @@ const SCREENS = [
     name: 'BottomTabNavigator',
     component: BottomTabNavigator,
     title: 'Bottom Tab Navigator',
+  },
+  {
+    name: 'ColorInterpolation',
+    component: ColorInterpolation,
+    title: 'Color Interpolation in slider',
   },
 ];
 
